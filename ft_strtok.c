@@ -5,46 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 15:46:57 by walter            #+#    #+#             */
-/*   Updated: 2025/01/13 16:06:00 by wbeschon         ###   ########.fr       */
+/*   Created: 2025/01/24 23:47:46 by walter            #+#    #+#             */
+/*   Updated: 2025/01/25 16:12:55 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strtok(char *s, char sep)
+char	*ft_strtok(char *s, char *sep)
 {
-	static char	*current;
+	static char		*current = NULL;
+	static int		s_len;
+	static int		i;
 
+	if (!s && !current)
+		return (NULL);
 	if (s)
 	{
 		current = s;
-		while (*current == sep)
-			current++;
-		if (!(*current))
-			return (NULL);
-		return (current);
+		s_len = (int)ft_strlen(s);
+		i = -1;
+		while (++i < s_len)
+			if (ft_strchr(sep, current[i]))
+				current[i] = '\0';
+		i = 0;
 	}
-	while (*current != sep && *current)
-		current++;
-	while (*current == sep)
-		current++;
-	if (*current == '\0')
-		return (NULL);
-	return (current);
+	while (current[i] == '\0' && i < s_len)
+		i++;
+	if (i >= s_len)
+		return (current = NULL, NULL);
+	s = &current[i];
+	while (current[i] && i < s_len)
+		i++;
+	return (s);
 }
 
-/*int	main(int ac, char **av)
+/*int	main(void)
 {
-	char	*ptr;
+	char	s[] = "hello, World ! How are you doing ?";
+	char	s2[] = "Hey, very good indeed ! And you ?";
+	char	*token;
 
-	if (ac != 2)
-		return (0);
-	ptr = ft_strtok(av[1], ' ');
-	while (ptr)
+	printf("null return hopefully : %s\n", ft_strtok(NULL, ' '));
+	token = ft_strtok(s, ' ');
+	while (token)
 	{
-		printf("%s\n", ptr);
-		ptr = ft_strtok(NULL, ' ');
+		printf("%s\n", token);
+		token = ft_strtok(NULL, ' ');
+	}
+	token = ft_strtok(s2, ' ');
+	while (token)
+	{
+		printf("%s\n", token);
+		token = ft_strtok(NULL, ' ');
 	}
 	return (0);
 }
