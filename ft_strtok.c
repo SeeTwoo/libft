@@ -6,12 +6,11 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:47:46 by walter            #+#    #+#             */
-/*   Updated: 2025/01/25 16:12:55 by walter           ###   ########.fr       */
+/*   Updated: 2025/01/25 16:19:59 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strtok(char *s, char *sep)
 {
