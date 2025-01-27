@@ -6,7 +6,7 @@
 #    By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 12:35:30 by wbeschon          #+#    #+#              #
-#    Updated: 2025/01/22 15:19:03 by wbeschon         ###   ########.fr        #
+#    Updated: 2025/01/27 14:28:29 by wbeschon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC = ft_atoi.c \
 	  ft_putstr_fd.c \
 	  ft_split.c \
 	  ft_strchr.c \
+	  ft_strcspn.c \
 	  ft_strdup.c \
 	  ft_striteri.c \
 	  ft_strjoin.c \
@@ -46,6 +47,7 @@ SRC = ft_atoi.c \
 	  ft_strncmp.c \
 	  ft_strnstr.c \
 	  ft_strrchr.c \
+	  ft_strspn.c \
 	  ft_strtok.c \
 	  ft_strtol.c \
 	  ft_strtrim.c \
