@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:01:22 by walter            #+#    #+#             */
-/*   Updated: 2025/01/22 15:26:09 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:25:36 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	line_size(t_gnllist *head)
 	return (line_size);
 }
 
-t_gnllist	*free_list(t_gnllist *head)
+t_gnllist	*gnl_free_list(t_gnllist *head)
 {
 	t_gnllist	*temp;
 
@@ -50,7 +50,7 @@ t_gnllist	*free_list(t_gnllist *head)
 	return (NULL);
 }
 
-t_gnllist	*new_node(char *buffer, int len)
+t_gnllist	*gnl_new_node(char *buffer, int len)
 {
 	t_gnllist	*new_node;
 
