@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 22:05:08 by walter            #+#    #+#             */
-/*   Updated: 2025/01/22 15:24:13 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:22:39 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ char	*build_line(t_gnllist *head)
 	return (line);
 }
 
-void	build_node(t_gnllist **head, t_gnllist **tail, char *buffer, int len)
+void	gnl_build_node(t_gnllist **head, t_gnllist **tail, char *buffer, int len)
 {
 	if (!(*head))
 	{
-		*head = new_node(buffer, len);
+		*head = gnl_new_node(buffer, len);
 		*tail = (*head);
 	}
 	else
 	{
-		(*tail)->next = new_node(buffer, len);
+		(*tail)->next = gnl_new_node(buffer, len);
 		*tail = (*tail)->next;
 	}
 }
@@ -53,7 +53,7 @@ int	get_chunk(t_gnllist **head, t_gnllist **tail, char *buffer, int fd)
 	if (bytes_read < 0)
 		return (bytes_read);
 	buffer[bytes_read] = '\0';
-	build_node(head, tail, buffer, bytes_read);
+	gnl_build_node(head, tail, buffer, bytes_read);
 	return (bytes_read);
 }
 
@@ -64,7 +64,7 @@ t_gnllist	*build_list(char *buffer, t_gnllist **head, t_gnllist **tail, int fd)
 	if (buffer[0])
 	{
 		buffer_shift(buffer);
-		build_node(head, tail, buffer, nl_ft_strlen(buffer));
+		gnl_build_node(head, tail, buffer, nl_ft_strlen(buffer));
 		if (!(*head))
 			return (NULL);
 	}
@@ -78,7 +78,7 @@ t_gnllist	*build_list(char *buffer, t_gnllist **head, t_gnllist **tail, int fd)
 		}
 		bytes_read = get_chunk(head, tail, buffer, fd);
 		if (!tail || bytes_read < 0)
-			return (free_list(*head));
+			return (gnl_free_list(*head));
 	}
 	return (*head);
 }
@@ -99,6 +99,6 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = NULL;
 	line = build_line(head);
-	free_list(head);
+	gnl_free_list(head);
 	return (line);
 }

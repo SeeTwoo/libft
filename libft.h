@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/01/27 08:53:08 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:23:04 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ int			ft_tolower(int c);
 int			ft_toupper(int c);
 
 void    	buffer_shift(char *buffer);
-void    	build_node(t_gnllist **head, t_gnllist **tail, char *buffer, int len);
-t_gnllist   *free_list(t_gnllist *head);
+void    	gnl_build_node(t_gnllist **head, t_gnllist **tail, char *buffer, int len);
+t_gnllist   *gnl_free_list(t_gnllist *head);
 char    	*get_next_line(int fd);
 int     	line_size(t_gnllist *head);
-t_gnllist   *new_node(char *buffer, int len);
+t_gnllist   *gnl_new_node(char *buffer, int len);
 int     	nl_ft_strlen(char *s);
 void    	print_list(t_gnllist *head);
 
