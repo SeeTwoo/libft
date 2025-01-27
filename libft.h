@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/01/22 15:25:38 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/01/27 08:53:08 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t n);
 char		*ft_strrchr(const char *s, int c);
-char		*ft_strtok(char	*s, char sep);
+char		*ft_strtok(char	*s, char *sep);
 long		ft_strtol(char *s, char **end, size_t size);
 char		*ft_strtrim(char const *s, char const *set);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
