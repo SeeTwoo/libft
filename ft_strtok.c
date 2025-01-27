@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:47:46 by walter            #+#    #+#             */
-/*   Updated: 2025/01/27 09:15:18 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:48:21 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,11 @@ char	*ft_strtok(char *s, char *sep)
 	}
 	if (!current[i])
 		i++;
-	while (ft_strchr(sep, current[i]) && i < s_len)
-		i++;
+	i += (int)ft_strspn(&current[i], sep);
 	if (i >= s_len)
 		return (current = NULL, NULL);
 	s = &current[i];
-	while (!ft_strchr(sep, current[i]) && i < s_len)
-		i++;
+	i += (int)ft_strcspn(&current[i], sep);
 	if (i < s_len)
 		current[i] = '\0';
 	return (s);
