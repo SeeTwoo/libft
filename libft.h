@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/01/27 14:26:52 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/01/28 11:53:29 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
 #  define BUFFER_SIZE 5
 # endif
 
-typedef struct s_gnllist
+typedef struct s_bit
 {
-    char                chunk[BUFFER_SIZE + 1];
-    int                 chunk_len;
-    struct s_gnllist    *next;
-}						t_gnllist;
+	char				chunk[BUFFER_SIZE + 1];
+	int					chunk_len;
+	struct s_bit		*next;
+}						t_bit;
 
 int			ft_atoi(const char *src);
 void		ft_bzero(void *src, size_t n);
@@ -71,13 +71,13 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 
-void    	buffer_shift(char *buffer);
-void    	gnl_build_node(t_gnllist **head, t_gnllist **tail, char *buffer, int len);
-t_gnllist   *gnl_free_list(t_gnllist *head);
-char    	*get_next_line(int fd);
-int     	line_size(t_gnllist *head);
-t_gnllist   *gnl_new_node(char *buffer, int len);
-int     	nl_ft_strlen(char *s);
-void    	print_list(t_gnllist *head);
+void		buffer_shift(char *buffer);
+void		gnl_build_node(t_bit **head, t_bit **tail, char *buf, int len);
+t_bit		*gnl_free_list(t_bit *head);
+char		*get_next_line(int fd);
+int			line_size(t_bit *head);
+t_bit		*gnl_new_node(char *buffer, int len);
+int			nl_ft_strlen(char *s);
+void		print_list(t_bit *head);
 
 #endif

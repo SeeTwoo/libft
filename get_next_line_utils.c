@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:01:22 by walter            #+#    #+#             */
-/*   Updated: 2025/01/27 10:25:36 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/01/28 11:55:32 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	nl_ft_strlen(char *s)
 	return (i);
 }
 
-int	line_size(t_gnllist *head)
+int	line_size(t_bit *head)
 {
 	int	line_size;
 
@@ -37,9 +37,9 @@ int	line_size(t_gnllist *head)
 	return (line_size);
 }
 
-t_gnllist	*gnl_free_list(t_gnllist *head)
+t_bit	*gnl_free_list(t_bit *head)
 {
-	t_gnllist	*temp;
+	t_bit	*temp;
 
 	while (head)
 	{
@@ -50,11 +50,11 @@ t_gnllist	*gnl_free_list(t_gnllist *head)
 	return (NULL);
 }
 
-t_gnllist	*gnl_new_node(char *buffer, int len)
+t_bit	*gnl_new_node(char *buffer, int len)
 {
-	t_gnllist	*new_node;
+	t_bit	*new_node;
 
-	new_node = malloc(sizeof(t_gnllist));
+	new_node = malloc(sizeof(t_bit));
 	if (!new_node)
 		return (NULL);
 	new_node->chunk_len = len;

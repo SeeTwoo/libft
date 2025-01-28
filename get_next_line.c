@@ -6,13 +6,13 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 22:05:08 by walter            #+#    #+#             */
-/*   Updated: 2025/01/27 10:22:39 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/01/28 11:54:10 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*build_line(t_gnllist *head)
+char	*build_line(t_bit *head)
 {
 	char	*line;
 	char	*walker;
@@ -24,28 +24,28 @@ char	*build_line(t_gnllist *head)
 	while (head)
 	{
 		ft_memcpy(walker, head->chunk, head->chunk_len);
-		walker += head->chunk_len; 
+		walker += head->chunk_len;
 		head = head->next;
 	}
 	*walker = '\0';
 	return (line);
 }
 
-void	gnl_build_node(t_gnllist **head, t_gnllist **tail, char *buffer, int len)
+void	gnl_build_node(t_bit **head, t_bit **tail, char *buf, int len)
 {
 	if (!(*head))
 	{
-		*head = gnl_new_node(buffer, len);
+		*head = gnl_new_node(buf, len);
 		*tail = (*head);
 	}
 	else
 	{
-		(*tail)->next = gnl_new_node(buffer, len);
+		(*tail)->next = gnl_new_node(buf, len);
 		*tail = (*tail)->next;
 	}
 }
 
-int	get_chunk(t_gnllist **head, t_gnllist **tail, char *buffer, int fd)
+int	get_chunk(t_bit **head, t_bit **tail, char *buffer, int fd)
 {
 	int	bytes_read;
 
@@ -57,26 +57,26 @@ int	get_chunk(t_gnllist **head, t_gnllist **tail, char *buffer, int fd)
 	return (bytes_read);
 }
 
-t_gnllist	*build_list(char *buffer, t_gnllist **head, t_gnllist **tail, int fd)
+t_bit	*build_list(char *buf, t_bit **head, t_bit **tail, int fd)
 {
 	int		bytes_read;
 
-	if (buffer[0])
+	if (buf[0])
 	{
-		buffer_shift(buffer);
-		gnl_build_node(head, tail, buffer, nl_ft_strlen(buffer));
+		buffer_shift(buf);
+		gnl_build_node(head, tail, buf, nl_ft_strlen(buf));
 		if (!(*head))
 			return (NULL);
 	}
 	bytes_read = 1;
 	while (bytes_read > 0)
 	{
-		if (ft_strchr(buffer, '\n'))
+		if (ft_strchr(buf, '\n'))
 		{
-			(*tail)->chunk_len = nl_ft_strlen(buffer);
+			(*tail)->chunk_len = nl_ft_strlen(buf);
 			return (*head);
 		}
-		bytes_read = get_chunk(head, tail, buffer, fd);
+		bytes_read = get_chunk(head, tail, buf, fd);
 		if (!tail || bytes_read < 0)
 			return (gnl_free_list(*head));
 	}
@@ -87,8 +87,8 @@ char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1] = "\0";
 	char		*line;
-	t_gnllist	*head;
-	t_gnllist	*tail;
+	t_bit		*head;
+	t_bit		*tail;
 
 	if (fd == -1)
 		return (NULL);
