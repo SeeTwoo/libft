@@ -6,7 +6,7 @@
 #    By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 12:35:30 by wbeschon          #+#    #+#              #
-#    Updated: 2025/01/27 14:28:29 by wbeschon         ###   ########.fr        #
+#    Updated: 2025/02/06 16:59:51 by wbeschon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,9 @@ SRC = ft_atoi.c \
 	  ft_memcpy.c \
 	  ft_memmove.c \
 	  ft_memset.c \
+	  ft_other_printers.c \
+	  ft_printf.c \
+	  ft_printers.c \
 	  ft_putchar_fd.c \
 	  ft_putendl_fd.c \
 	  ft_putnbr_fd.c \
@@ -48,7 +51,6 @@ SRC = ft_atoi.c \
 	  ft_strnstr.c \
 	  ft_strrchr.c \
 	  ft_strspn.c \
-	  ft_strtok.c \
 	  ft_strtol.c \
 	  ft_strtrim.c \
 	  ft_substr.c \
@@ -57,26 +59,20 @@ SRC = ft_atoi.c \
 	  get_next_line.c \
 	  get_next_line_utils.c
 
-OBJ = $(SRC:.c=.o)
+#	  ft_strtok.c \  #
 
-OBJBNS = $(SRCBNS:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-bonus: $(OBJBNS)
-	ar rcs $(NAME) $(OBJBNS) 
-
 $(SRC):
 	$(CC) $(CFLAGS) -c $(SRC) -o $(OBJ)
 
-$(SRCBNS):
-	$(CC) $(CFLAGS) -c $(SRC) -o $(OBJ)
-
 clean:
-	rm -f $(OBJ) $(OBJBNS)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

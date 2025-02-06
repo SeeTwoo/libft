@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/01/28 11:53:29 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:01:54 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <limits.h>
@@ -79,5 +80,14 @@ int			line_size(t_bit *head);
 t_bit		*gnl_new_node(char *buffer, int len);
 int			nl_ft_strlen(char *s);
 void		print_list(t_bit *head);
+
+int			ft_printf(char const *s, ...);
+int			ft_putchar(char c);
+int			ft_puthex(unsigned int n, char *base);
+int			ft_putlhex(unsigned long n, char *base);
+int			ft_putnbr(long long n);
+int			ft_putptr(void *ptr);
+int			ft_putstr(char *s);
+int			ft_putunbr(unsigned int n);
 
 #endif
