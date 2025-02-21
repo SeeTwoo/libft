@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-DFlags = -Wall -Wextra -Werror -g
+DFLAGS = -Wall -Wextra -Werror -g
 
 SRC_DIR = src
 SRC_FILES = ft_atoi.c \
@@ -68,7 +68,7 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 debug: fclean
-	make CFLAGS="$(DFLAGS)"
+	$(MAKE) CFLAGS="$(DFLAGS)"
 
 clean:
 	rm -rf $(OBJ_DIR)
