@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/01 17:06:55 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/02 12:34:24 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
 char		**ft_split(char const *s, char *sep);
 char		*ft_strchr(const char *s, int c);
+int			ft_strcmp(char const *s1, char const *s2);
 char		*ft_strcpy(char *dest, char const *src);
 size_t		ft_strcspn(char	const *s, char const *reject);
 char		*ft_strdup(const char *s);
