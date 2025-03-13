@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/03 20:28:04 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/13 17:14:46 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,14 @@
 # include <stdint.h>
 # include <limits.h>
 # include "ft_colors.h"
+# include "ft_printf.h"
+# include "get_next_line.h"
 # include "ft_error.h"
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
-# endif
-
-typedef struct s_bit
-{
-	char				chunk[BUFFER_SIZE + 1];
-	int					chunk_len;
-	struct s_bit		*next;
-}						t_bit;
 
 int			ft_atoi(const char *src);
 void		ft_bzero(void *src, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
+void		ft_error_msg(char *msg1, char *msg2);
 int			ft_isalnum(int c);
 int			ft_isalpha(int c);
 int			ft_isascii(int c);
@@ -75,23 +67,5 @@ char		*ft_strtrim(char const *s, char const *set);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
-
-void		buffer_shift(char *buffer);
-void		gnl_build_node(t_bit **head, t_bit **tail, char *buf, int len);
-t_bit		*gnl_free_list(t_bit *head);
-char		*get_next_line(int fd);
-int			line_size(t_bit *head);
-t_bit		*gnl_new_node(char *buffer, int len);
-int			nl_ft_strlen(char *s);
-void		print_list(t_bit *head);
-
-int			ft_printf(char const *s, ...);
-int			ft_putchar(char c);
-int			ft_puthex(unsigned int n, char *base);
-int			ft_putlhex(unsigned long n, char *base);
-int			ft_putnbr(long long n);
-int			ft_putptr(void *ptr);
-int			ft_putstr(char *s);
-int			ft_putunbr(unsigned int n);
 
 #endif

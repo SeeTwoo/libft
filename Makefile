@@ -1,11 +1,12 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -Iincludes
-DFLAGS = -Wall -Wextra -Werror -Iincludes -g
+DFLAGS = $(CFLAGS) -g3
 
 SRC_DIR = src
 SRC_FILES = ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
+			ft_error_msg.c \
 			ft_isalnum.c \
 			ft_isalpha.c \
 			ft_isascii.c \
