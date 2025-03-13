@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/13 17:14:46 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/13 21:24:56 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include "get_next_line.h"
 # include "ft_error.h"
 
+int			ft_atoi_base(char const *s, char const *charset);
 int			ft_atoi(const char *src);
 void		ft_bzero(void *src, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);

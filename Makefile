@@ -3,7 +3,8 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes
 DFLAGS = $(CFLAGS) -g3
 
 SRC_DIR = src
-SRC_FILES = ft_atoi.c \
+SRC_FILES = ft_atoi_base.c \
+			ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
 			ft_error_msg.c \
