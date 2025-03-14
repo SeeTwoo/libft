@@ -43,6 +43,7 @@ SRC_FILES = ft_atoi_base.c \
 			ft_strnstr.c \
 			ft_strrchr.c \
 			ft_strspn.c \
+			ft_strstr.c \
 			ft_strtok.c \
 			ft_strtol.c \
 			ft_strtrim.c \
