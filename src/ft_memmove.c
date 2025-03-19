@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:31:08 by wbeschon          #+#    #+#             */
-/*   Updated: 2024/11/27 17:22:54 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/19 10:13:42 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	if (src < dest && src + n > dest)
 	{
 		while (n > 0)
-		{	
+		{
 			ptr_dest[n - 1] = ptr_src[n - 1];
 			n--;
 		}
