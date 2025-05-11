@@ -9,6 +9,10 @@ SRC_FILES = ft_atoi_base.c \
 			ft_calloc.c \
 			ft_charspn.c \
 			ft_dprintf.c \
+			ft_dprintf_buffer_handling.c \
+			ft_dprintf_number.c \
+			ft_dprintf_parsing.c \
+			ft_dprintf_string.c \
 			ft_error_msg.c \
 			ft_isalnum.c \
 			ft_isalpha.c \
