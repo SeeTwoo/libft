@@ -31,7 +31,7 @@ struct s_pfvars
 	int			fd;
 };
 
-int			ft_printf(char const *s, ...);
+int			ft_printf(char const *format, ...);
 int			ft_putchar(char c);
 int			ft_puthex(unsigned int n, char *base);
 int			ft_putlhex(unsigned long n, char *base);
