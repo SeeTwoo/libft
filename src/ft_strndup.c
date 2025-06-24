@@ -23,6 +23,7 @@ char	*ft_strndup(char const *s, size_t n)
 	dest = malloc(sizeof(char) * (len + 1));
 	if (!dest)
 		return (NULL);
-	ft_memcpy(dest, s, len + 1);
+	ft_memcpy(dest, s, len);
+	dest[len] = '\0';
 	return (dest);
 }
