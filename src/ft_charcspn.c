@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_charspn.c                                       :+:      :+:    :+:   */
+/*   ft_charcspn.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seetwoo <waltibee@gmail.com>               +#+  +:+       +#+        */
+/*   By: seetwoo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 17:58:00 by seetwoo           #+#    #+#             */
-/*   Updated: 2025/07/04 17:59:03 by seetwoo          ###   ########.fr       */
+/*   Created: 2025/05/10 09:31:24 by seetwoo           #+#    #+#             */
+/*   Updated: 2025/07/04 17:59:18 by seetwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_charspn(char const *s, char accept)
+size_t	ft_charcspn(char const *s, char reject)
 {
-	size_t	i;
+	char	*end;
 
-	i = 0;
-	while (s[i] == accept)
-		i++;
-	return (i);
+	end = ft_strchr(s, reject);
+	if (!end)
+		return (ft_strlen(s));
+	return (end - s);
 }

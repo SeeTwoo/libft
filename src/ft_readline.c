@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_charspn.c                                       :+:      :+:    :+:   */
+/*   ft_readline.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seetwoo <waltibee@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 17:58:00 by seetwoo           #+#    #+#             */
-/*   Updated: 2025/07/04 17:59:03 by seetwoo          ###   ########.fr       */
+/*   Created: 2025/06/24 20:40:46 by seetwoo           #+#    #+#             */
+/*   Updated: 2025/06/24 20:50:54 by seetwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_charspn(char const *s, char accept)
+char	*ft_readline(char const *prompt)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] == accept)
-		i++;
-	return (i);
+	ft_printf("%s", prompt);
 }

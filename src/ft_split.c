@@ -6,13 +6,13 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:47:09 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/02/27 14:47:08 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:30:36 by seetwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**free_split(char **array, int i, char *s_dup)
+static char	**free_split(char **array, int i)
 {
 	while (i >= 0)
 	{
@@ -20,49 +20,46 @@ static char	**free_split(char **array, int i, char *s_dup)
 		i--;
 	}
 	free(array);
-	free(s_dup);
 	return (NULL);
 }
 
-static size_t	count_words(char const *s, char *sep)
+static size_t	count_words(char const *s, char sep)
 {
 	size_t	count;
 
 	count = 0;
 	while (*s)
 	{
-		s += ft_strspn(s, sep);
+		s += ft_charspn(s, sep);
 		if (*s)
 			count++;
-		s += ft_strcspn(s, sep);
+		s += ft_charcspn(s, sep);
 	}
 	return (count);
 }
 
-char	**ft_split(char const *s, char *sep)
+char	**ft_split(char const *s, char sep)
 {
 	char	**array;
-	char	*s_dup;
-	char	*token;
+	size_t	offset;
 	int		i;
 
 	if (!s)
 		return (NULL);
 	array = malloc(sizeof(char *) * (count_words(s, sep) + 1));
-	s_dup = ft_strdup(s);
-	if (!s_dup || !array)
-		return (free_split(array, 0, s_dup));
-	token = ft_strtok(s_dup, sep);
+	if (!array)
+		return (NULL);
 	i = 0;
-	while (token)
+	while (*s)
 	{
-		array[i] = ft_strdup(token);
+		s += ft_charspn(s, sep);
+		offset = ft_charcspn(s, sep);
+		array[i] = ft_strndup(s, offset);
 		if (!array[i])
-			return (free_split(array, i, s_dup));
-		token = ft_strtok(NULL, sep);
+			return (free_split(array, i));
+		s += offset;
 		i++;
 	}
 	array[i] = NULL;
-	free(s_dup);
 	return (array);
 }

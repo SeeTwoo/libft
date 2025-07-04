@@ -7,6 +7,7 @@ SRC_FILES = ft_atoi_base.c \
 			ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
+			ft_charcspn.c \
 			ft_charspn.c \
 			ft_dprintf.c \
 			ft_dprintf_buffer_handling.c \

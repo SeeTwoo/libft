@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/05/10 09:33:14 by seetwoo          ###   ########.fr       */
+/*   Updated: 2025/07/04 18:00:15 by seetwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int			ft_atoi_base(char const *s, char const *charset);
 int			ft_atoi(const char *src);
 void		ft_bzero(void *src, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
-size_t		ft_charspn(char const *s, char reject);
+size_t		ft_charcspn(char const *s, char reject);
+size_t		ft_charspn(char const *s, char accept);
 void		ft_error_msg(char *msg1, char *msg2);
 int			ft_isalnum(int c);
 int			ft_isalpha(int c);
@@ -47,7 +48,7 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
-char		**ft_split(char const *s, char *sep);
+char		**ft_split(char const *s, char sep);
 char		*ft_strchr(const char *s, int c);
 int			ft_strcmp(char const *s1, char const *s2);
 char		*ft_strcpy(char *dest, char const *src);
